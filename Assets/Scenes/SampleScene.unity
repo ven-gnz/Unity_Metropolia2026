@@ -5719,6 +5719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StaffShotgunController
   _torchLight: {fileID: 111367094}
   _swipe: {fileID: 1948149831696240166, guid: 58448d8ab857ef34eae459fa6d3a3e3b, type: 3}
+  _playerDirection: {fileID: 1861740475}
   _projectile: {fileID: 1853368783819410024, guid: 3d0a9e76a50fb61469acaa7b97154f4d, type: 3}
   _projectilePool: {fileID: 690569167}
   _tip: {fileID: 1924053383}
@@ -13496,6 +13497,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 453597a8a94e71d4b8d05192252c037d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+--- !u!114 &1861740475 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1545580958003376294, guid: 638c03f4f93983d4faf02274b21bf692, type: 3}
+  m_PrefabInstance: {fileID: 6506244965204465635}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861740455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 420ebb80bf7d9624194ffc03e708699e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDirection
 --- !u!1 &1863520511
 GameObject:
   m_ObjectHideFlags: 0
@@ -15638,7 +15650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3313023280825185013, guid: 638c03f4f93983d4faf02274b21bf692, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3480183630426177931, guid: 638c03f4f93983d4faf02274b21bf692, type: 3}
       propertyPath: player
@@ -15694,11 +15706,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3602792160879165406, guid: 638c03f4f93983d4faf02274b21bf692, type: 3}
       propertyPath: m_PointLightInnerAngle
-      value: 40
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3602792160879165406, guid: 638c03f4f93983d4faf02274b21bf692, type: 3}
       propertyPath: m_PointLightOuterAngle
-      value: 70
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 4519564552527627364, guid: 638c03f4f93983d4faf02274b21bf692, type: 3}
       propertyPath: m_LocalScale.x

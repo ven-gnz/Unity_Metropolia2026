@@ -3,16 +3,12 @@ using System.Collections;
 using UnityEngine.Rendering.Universal;
 
 
-
-public enum StaffQuadrant { NorthEast, SouthEast, SouthWest, NorthWest}
-
 public class StaffShotgunController : MonoBehaviour
 {
 
-    private Camera mainCamera;
-    Vector2 _lookDirection;
     [SerializeField] private Light2D _torchLight;
     [SerializeField] Swipe _swipe;
+    [SerializeField] PlayerDirection _playerDirection;
 
     [SerializeField] Projectile _projectile;
     [SerializeField] ObjectPool _projectilePool;
@@ -21,7 +17,7 @@ public class StaffShotgunController : MonoBehaviour
 
 
 
-    [SerializeField] private float swipeCooldown = 0.2f;
+    [SerializeField] private float swipeCooldown = 0.1f;
     private bool _swipeForward = true;
     private float nextSwipeTime;
     private Swipe _activeSwipe;
@@ -48,7 +44,7 @@ public class StaffShotgunController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        mainCamera = Camera.main;
+
     }
 
     // Update is called once per frame
@@ -57,7 +53,6 @@ public class StaffShotgunController : MonoBehaviour
 
         if (GameManager.Instance.GetState() != GameState.Playing) return;
         RotateStaff();
-        SetLookDirection();
 
         if (_activeSwipe != null)
         {
@@ -146,17 +141,15 @@ public class StaffShotgunController : MonoBehaviour
 
     void FireWave(int clustersThisWave)
     {
-        float lookAngle = Mathf.Atan2(
-        _lookDirection.y,
-        _lookDirection.x
-        ) * Mathf.Rad2Deg;
+        Vector2 direction =
+      _playerDirection.GetQuadrantDirection();
 
         float[] innerAngles =
         {
         -innerCone,
         -innerCone * 0.5f,
         0f,
-        innerCone * 0.5f,
+        innerCone* 0.5f,
         innerCone
     };
 
@@ -178,8 +171,8 @@ public class StaffShotgunController : MonoBehaviour
                     Quaternion.Euler(
                         0f,
                         0f,
-                        lookAngle + pelletAngle
-                    ) * Vector2.right;
+                        pelletAngle
+                    ) * direction;
 
                 GameObject go =
                     _projectilePool.GetPooledObject();
@@ -210,7 +203,7 @@ public class StaffShotgunController : MonoBehaviour
 
         swipe.Initialize(
         player.transform.position,
-        _lookDirection.normalized,
+        _playerDirection.LookDirection,
         _swipeForward);
 
         _activeSwipe = swipe;
@@ -219,15 +212,11 @@ public class StaffShotgunController : MonoBehaviour
 
 
 
-    void SetLookDirection()
+    private void RotateStaff()
     {
-        Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        _lookDirection = (mousePosition - (Vector2)transform.position).normalized;
-    }
+        Vector2 direction =
+            _playerDirection.GetQuadrantDirection();
 
-    void RotateStaff()
-    {
-        float angle = Mathf.Atan2(_lookDirection.y, _lookDirection.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.right = direction;
     }
 }
