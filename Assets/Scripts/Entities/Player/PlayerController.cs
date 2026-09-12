@@ -59,10 +59,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        SetPlayerOrientation();
-        UpdateAnimator();   
+       
         if (!isDead)
         {
+            SetPlayerOrientation();
+            UpdateAnimator();
             HandlePlayerMovement();
         }
         else
