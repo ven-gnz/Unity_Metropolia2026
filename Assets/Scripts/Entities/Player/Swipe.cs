@@ -6,7 +6,7 @@ public class Swipe : MonoBehaviour
 {
 
     [SerializeField] private ParticleSystem _particles;
-    [SerializeField] private float _lifetime = 0.25f;
+    [SerializeField] private float _lifetime = 0.1f;
 
 
     private float dps = 10.0f; // high DPS to combat the short lifetime. A normalization for 0.2s lifetime -

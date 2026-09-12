@@ -2,6 +2,10 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.Rendering.Universal;
 
+
+
+public enum StaffQuadrant { NorthEast, SouthEast, SouthWest, NorthWest}
+
 public class StaffShotgunController : MonoBehaviour
 {
 
@@ -17,7 +21,7 @@ public class StaffShotgunController : MonoBehaviour
 
 
 
-    [SerializeField] private float swipeCooldown = 0.5f;
+    [SerializeField] private float swipeCooldown = 0.2f;
     private bool _swipeForward = true;
     private float nextSwipeTime;
     private Swipe _activeSwipe;

@@ -5216,6 +5216,7 @@ GameObject:
   - component: {fileID: 8245374138684779797}
   - component: {fileID: 7437102445447723579}
   - component: {fileID: 3833155191796550076}
+  - component: {fileID: 1545580958003376294}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -5340,6 +5341,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32a2f2159b7e52a48823be3b1bebc10d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealthSystem
+--- !u!114 &1545580958003376294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2974824821760234103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 420ebb80bf7d9624194ffc03e708699e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDirection
 --- !u!1 &3313023280825185013
 GameObject:
   m_ObjectHideFlags: 0
@@ -5388,6 +5401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SwipeDebug
   _ring: {fileID: 6606342529450908192}
   _activeArc: {fileID: 6559180175968283775}
+  _playerDirection: {fileID: 1545580958003376294}
   _radius: 2
   _segments: 64
 --- !u!1 &4105520874079525192

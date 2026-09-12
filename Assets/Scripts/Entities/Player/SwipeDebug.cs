@@ -1,24 +1,16 @@
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class SwipeDebug : MonoBehaviour
 {
     [SerializeField] private LineRenderer _ring;
     [SerializeField] private LineRenderer _activeArc;
-    private Camera mainCamera;
-    private Transform _player;
-    private Vector2 _lookDirection;
+    [SerializeField] public PlayerDirection _playerDirection;
 
     [SerializeField] private float _radius = 2.5f;
     [SerializeField] private int _segments = 64;
+    private float _arcAngle = 90.0f;
 
-    private float _arcAngle = 120.0f;
-
-    private void Awake()
-    {
-        _player = GameObject.FindGameObjectWithTag("Player").transform;
-        
-        mainCamera = Camera.main;
-    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,8 +22,6 @@ public class SwipeDebug : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SetLookDirection();
-
         DrawArc();
     }
 
@@ -55,8 +45,16 @@ public class SwipeDebug : MonoBehaviour
         }
     }
 
+
+
+
+
+
     private void DrawArc()
     {
+        Vector2 direction =
+            _playerDirection.GetQuadrantDirection();
+
         float halfAngle = _arcAngle * 0.5f;
 
         _activeArc.positionCount = _segments + 1;
@@ -72,25 +70,15 @@ public class SwipeDebug : MonoBehaviour
                 t
             );
 
+            Vector2 rotatedDirection =
+                Quaternion.Euler(0f, 0f, angle) * direction;
+
             _activeArc.SetPosition(
                 i,
-                PointOnArc(angle)
+                rotatedDirection * _radius
             );
         }
     }
 
-    private Vector3 PointOnArc(float angle)
-    {
-        Vector2 direction =
-            Quaternion.Euler(0f, 0f, angle) * _lookDirection;
-
-        return direction * _radius;
-    }
-
-    void SetLookDirection()
-    {
-        Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        _lookDirection = (mousePosition - (Vector2)transform.position).normalized;
-    }
 
 }
