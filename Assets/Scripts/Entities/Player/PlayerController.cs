@@ -1,18 +1,19 @@
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 using static UnityEngine.Input;
 using NUnit.Framework;
 using UnityEngine.Rendering.Universal;
 
 public class PlayerController : MonoBehaviour
 {
-    float _nextFootstepAudio = 0.0f;
+
     private Rigidbody2D _rb;
     [SerializeField] float movementSpeed = 10.0f;
     [SerializeField] SpriteRenderer _characterBody;
     [SerializeField] ParticleSystem _overdriveParticles;
     [SerializeField] private Animator _animator;
+    [SerializeField] private PlayerDirection _playerDirection;
+
     [SerializeField] AudioClip _footstep;
     [SerializeField] PlayerHealthSystem _healthSystem;
     [SerializeField] PlayerStaffController _staffController;
@@ -28,9 +29,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SpriteRenderer playerSprite;
     Color color;
     private bool isDead; // I guess we can keep this for the animator
+    private bool isEastFacing;
+    private bool isNorthFacing;
 
-
-    private readonly List<GameObject> nearbyEnemies = new();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -58,7 +59,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-
+        SetPlayerOrientation();
+        UpdateAnimator();   
         if (!isDead)
         {
             HandlePlayerMovement();
@@ -68,9 +70,9 @@ public class PlayerController : MonoBehaviour
             _rb.linearVelocity = Vector2.zero;
         }
 
-       
-   
 
+
+        _characterBody.flipX = !isEastFacing;
     }
 
     public void SetOverdrive(float amount)
@@ -93,13 +95,21 @@ public class PlayerController : MonoBehaviour
 
         bool characterIsWalking = movement.magnitude > 0.0f;
         _animator.SetBool("isWalking", characterIsWalking);
-        if (characterIsWalking)
-        {
-            HandleWalkingSounds();
-        }
+    }
 
-        bool flipSprite = movement.x < 0.0f;
-        _characterBody.flipX = flipSprite;
+    private void SetPlayerOrientation()
+    {
+        DirectionQuadrant quadrant =
+            _playerDirection.CurrentQuadrant;
+
+        isEastFacing = quadrant == DirectionQuadrant.North_East || quadrant == DirectionQuadrant.South_East;
+        isNorthFacing = quadrant == DirectionQuadrant.North_East || quadrant == DirectionQuadrant.North_West;
+
+        Debug.Log(
+            $"Orientation: {quadrant} | " +
+            $"Eastfacing: {isEastFacing} | " +
+            $"Northfacing: {isNorthFacing}"
+        );
     }
 
     IEnumerator alphaLerpingFunction(float endValue, float duration)
@@ -123,16 +133,7 @@ public class PlayerController : MonoBehaviour
         _characterBody.color = color;
     }
 
-    public void HandleWalkingSounds()
-    {
-        if(Time.time >= _nextFootstepAudio)
-        {
-            
-            AudioManager.Instance.PlayAudio(_footstep, AudioManager.SoundType.SFX, 1f, false);
-            float audioFrequency = _animator.GetCurrentAnimatorClipInfo(0)[0].clip.length / 2f;
-            _nextFootstepAudio = Time.time + audioFrequency;
-        }
-    }
+
 
     void PlayDeathAnimation()
     {
@@ -173,6 +174,12 @@ public class PlayerController : MonoBehaviour
             _characterBody.color = color;
         }
 
+    }
+
+    private void UpdateAnimator()
+    {
+        _animator.SetBool("isEastFacing", isEastFacing);
+        _animator.SetBool("isNorthFacing", isNorthFacing);
     }
 
     private void HandleMoonLightIntensity()

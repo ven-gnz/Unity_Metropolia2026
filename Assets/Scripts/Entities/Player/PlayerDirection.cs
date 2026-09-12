@@ -2,10 +2,10 @@ using UnityEngine;
 
 public enum DirectionQuadrant
 {
-    Right = 0, //   0° -  90°
-    Up = 1, //  90° - 180°
-    Left = 2, // 180° - 270°
-    Down = 3  // 270° - 360°
+    North_East = 0, //   0° -  90°
+    North_West = 1, //  90° - 180°
+    South_West = 2, // 180° - 270°
+    South_East = 3  // 270° - 360°
 }
 
 public class PlayerDirection : MonoBehaviour

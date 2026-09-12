@@ -16001,6 +16001,10 @@ PrefabInstance:
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8245374138684779797, guid: 638c03f4f93983d4faf02274b21bf692, type: 3}
+      propertyPath: _playerDirection
+      value: 
+      objectReference: {fileID: 1861740475}
+    - target: {fileID: 8245374138684779797, guid: 638c03f4f93983d4faf02274b21bf692, type: 3}
       propertyPath: _overdriveParticles
       value: 
       objectReference: {fileID: 1385582822}
