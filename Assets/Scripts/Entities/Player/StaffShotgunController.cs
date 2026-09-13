@@ -6,7 +6,7 @@ using UnityEngine.Rendering.Universal;
 public class StaffShotgunController : MonoBehaviour
 {
 
-    [SerializeField] private Light2D _torchLight;
+
     [SerializeField] Swipe _swipe;
     [SerializeField] PlayerDirection _playerDirection;
 
@@ -57,7 +57,7 @@ public class StaffShotgunController : MonoBehaviour
         if (_activeSwipe != null)
         {
             // Swipe is currently active.
-            _torchLight.transform.position = _activeSwipe.SwipePosition;
+            //_torchLight.transform.position = _activeSwipe.SwipePosition;
 
         }
 

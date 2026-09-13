@@ -15724,6 +15724,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e7025d7a409f5d5479e54b6783f05930, type: 2}
+    - target: {fileID: 6334571388243027728, guid: 638c03f4f93983d4faf02274b21bf692, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7559144294197991524, guid: 638c03f4f93983d4faf02274b21bf692, type: 3}
       propertyPath: m_UseWorldSpace
       value: 1
@@ -15998,7 +16002,7 @@ PrefabInstance:
       objectReference: {fileID: 1385582818}
     - target: {fileID: 8245374138684779797, guid: 638c03f4f93983d4faf02274b21bf692, type: 3}
       propertyPath: movementSpeed
-      value: 9
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8245374138684779797, guid: 638c03f4f93983d4faf02274b21bf692, type: 3}
       propertyPath: _playerDirection
