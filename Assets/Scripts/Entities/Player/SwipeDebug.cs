@@ -9,7 +9,15 @@ public class SwipeDebug : MonoBehaviour
 
     [SerializeField] private float _radius = 2.5f;
     [SerializeField] private int _segments = 64;
-    private float _arcAngle = 90.0f;
+    private float _arcAngle = 135.0f;
+    private Camera mainCamera;
+
+    Vector2 _lookDirection;
+
+    private void Awake()
+    {
+        mainCamera = Camera.main;
+    }
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,6 +30,7 @@ public class SwipeDebug : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        SetLookDirection();
         DrawArc();
     }
 
@@ -75,9 +84,23 @@ public class SwipeDebug : MonoBehaviour
 
             _activeArc.SetPosition(
                 i,
-                rotatedDirection * _radius
+                PointOnArc(angle)
             );
         }
+    }
+
+
+    void SetLookDirection()
+    {
+        Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        _lookDirection = (mousePosition - (Vector2)transform.position).normalized;
+    }
+
+    private Vector3 PointOnArc(float angle)
+    {
+        Vector2 direction = Quaternion.Euler(0f, 0f, angle) * _lookDirection;
+
+        return direction * _radius;
     }
 
 

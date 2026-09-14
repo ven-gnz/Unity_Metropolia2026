@@ -17,7 +17,7 @@ public class StaffShotgunController : MonoBehaviour
 
 
 
-    [SerializeField] private float swipeCooldown = 0.1f;
+    [SerializeField] private float swipeCooldown = 0.5f;
     private bool _swipeForward = true;
     private float nextSwipeTime;
     private Swipe _activeSwipe;
@@ -41,7 +41,16 @@ public class StaffShotgunController : MonoBehaviour
 
     int clusters;
 
+    public Camera mainCamera;
+    Vector2 _lookDirection;
+    [SerializeField] private Animator _animator;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private void Awake()
+    {
+        mainCamera = Camera.main;
+    }
     void Start()
     {
 
@@ -50,8 +59,9 @@ public class StaffShotgunController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
         if (GameManager.Instance.GetState() != GameState.Playing) return;
+        SetLookDirection();
         RotateStaff();
 
         if (_activeSwipe != null)
@@ -91,10 +101,16 @@ public class StaffShotgunController : MonoBehaviour
             chargeTime = 0f;
         }
 
+        if(Time.time >= swipeCooldown)
+        {
+            _animator.SetBool("isSwiping", false);
+        }
+
         if(Input.GetMouseButtonDown(1))
         {
             if(Time.time >= nextSwipeTime)
             {
+
                 nextSwipeTime = Time.time + swipeCooldown;
                 UseSwipe();
             }
@@ -198,7 +214,7 @@ public class StaffShotgunController : MonoBehaviour
 
     void UseSwipe()
     {
-   
+        _animator.SetBool("isSwiping", true);
         Swipe swipe = Instantiate(_swipe);
 
         swipe.Initialize(
@@ -214,9 +230,15 @@ public class StaffShotgunController : MonoBehaviour
 
     private void RotateStaff()
     {
-        Vector2 direction =
-            _playerDirection.GetQuadrantDirection();
-
-        transform.right = direction;
+        float angle = Mathf.Atan2(_lookDirection.y, _lookDirection.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
+
+    void SetLookDirection()
+    {
+        Vector2 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        _lookDirection = (mousePosition - (Vector2)transform.position).normalized;
+    }
+
+
 }

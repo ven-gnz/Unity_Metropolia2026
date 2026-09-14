@@ -106,11 +106,11 @@ public class PlayerController : MonoBehaviour
         isEastFacing = quadrant == DirectionQuadrant.North_East || quadrant == DirectionQuadrant.South_East;
         isNorthFacing = quadrant == DirectionQuadrant.North_East || quadrant == DirectionQuadrant.North_West;
 
-        Debug.Log(
-            $"Orientation: {quadrant} | " +
-            $"Eastfacing: {isEastFacing} | " +
-            $"Northfacing: {isNorthFacing}"
-        );
+        //Debug.Log(
+        //    $"Orientation: {quadrant} | " +
+        //    $"Eastfacing: {isEastFacing} | " +
+        //    $"Northfacing: {isNorthFacing}"
+        //);
     }
 
     IEnumerator alphaLerpingFunction(float endValue, float duration)

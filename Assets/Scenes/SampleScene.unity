@@ -909,17 +909,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &111367094 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2574556843782218203, guid: 638c03f4f93983d4faf02274b21bf692, type: 3}
-  m_PrefabInstance: {fileID: 6506244965204465635}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
 --- !u!1 &124837377
 GameObject:
   m_ObjectHideFlags: 0
@@ -5717,7 +5706,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7abbad07c2c8af3488fc4720e65fbe63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StaffShotgunController
-  _torchLight: {fileID: 111367094}
   _swipe: {fileID: 1948149831696240166, guid: 58448d8ab857ef34eae459fa6d3a3e3b, type: 3}
   _playerDirection: {fileID: 1861740475}
   _projectile: {fileID: 1853368783819410024, guid: 3d0a9e76a50fb61469acaa7b97154f4d, type: 3}
@@ -5725,6 +5713,8 @@ MonoBehaviour:
   _tip: {fileID: 1924053383}
   player: {fileID: 1861740455}
   swipeCooldown: 0.5
+  mainCamera: {fileID: 0}
+  _animator: {fileID: 1385582825}
 --- !u!1 &698206683
 GameObject:
   m_ObjectHideFlags: 0
@@ -10285,6 +10275,11 @@ SpriteRenderer:
 --- !u!198 &1385582822 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 8727882934524084861, guid: 638c03f4f93983d4faf02274b21bf692, type: 3}
+  m_PrefabInstance: {fileID: 6506244965204465635}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1385582825 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4949564755466446461, guid: 638c03f4f93983d4faf02274b21bf692, type: 3}
   m_PrefabInstance: {fileID: 6506244965204465635}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1417580663
@@ -15650,7 +15645,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3313023280825185013, guid: 638c03f4f93983d4faf02274b21bf692, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3480183630426177931, guid: 638c03f4f93983d4faf02274b21bf692, type: 3}
       propertyPath: player
@@ -15724,6 +15719,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e7025d7a409f5d5479e54b6783f05930, type: 2}
+    - target: {fileID: 5689546517539246527, guid: 638c03f4f93983d4faf02274b21bf692, type: 3}
+      propertyPath: _radius
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6334571388243027728, guid: 638c03f4f93983d4faf02274b21bf692, type: 3}
       propertyPath: m_IsActive
       value: 0

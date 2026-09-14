@@ -66,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -132,19 +132,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 28
-        width: 22
-        height: 21
+        y: 29
+        width: 21
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 8af0b9d254c04e020800000000000000
-      internalID: 2370032795161137064
+      spriteID: c5b7f428b946d214eaf28a882c0b09ad
+      internalID: -1998301981
       vertices: []
       indices: 
       edges: []
@@ -153,20 +153,20 @@ TextureImporter:
       name: torch swipe_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 5
-        width: 22
-        height: 23
+        x: 22
+        y: 29
+        width: 24
+        height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 5bb7dddb7ab0e6810800000000000000
-      internalID: 1760357319421295541
+      spriteID: 04418dccfb91adb41ab753ac92800902
+      internalID: 270487427
       vertices: []
       indices: 
       edges: []
@@ -175,20 +175,20 @@ TextureImporter:
       name: torch swipe_2
       rect:
         serializedVersion: 2
-        x: 21
+        x: 47
         y: 28
         width: 26
         height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 918009f4edd427030800000000000000
-      internalID: 3490938278378473497
+      spriteID: 52919a987f532d94eb877b832f6045d0
+      internalID: -1796722094
       vertices: []
       indices: 
       edges: []
@@ -197,20 +197,20 @@ TextureImporter:
       name: torch swipe_3
       rect:
         serializedVersion: 2
-        x: 21
-        y: 2
-        width: 24
-        height: 26
+        x: 0
+        y: 6
+        width: 21
+        height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: fb17cf2706b2d0030800000000000000
-      internalID: 3462471381763781055
+      spriteID: 2559835a85e7b934cb33071b50599de7
+      internalID: -160156933
       vertices: []
       indices: 
       edges: []
@@ -219,20 +219,20 @@ TextureImporter:
       name: torch swipe_4
       rect:
         serializedVersion: 2
-        x: 44
-        y: 0
-        width: 24
-        height: 28
+        x: 22
+        y: 3
+        width: 22
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6339b416b8076e0b0800000000000000
-      internalID: -5699744534455676106
+      spriteID: 4fa95cf4a6a6c9e4ea44b910419346f6
+      internalID: -1717208788
       vertices: []
       indices: 
       edges: []
@@ -241,20 +241,20 @@ TextureImporter:
       name: torch swipe_5
       rect:
         serializedVersion: 2
-        x: 46
-        y: 27
-        width: 28
-        height: 22
+        x: 45
+        y: 1
+        width: 22
+        height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 93a00fe69c2f094e0800000000000000
-      internalID: -1976813289452074439
+      spriteID: f67b3d97b70a104448eaf3cbc84511e8
+      internalID: -1960252608
       vertices: []
       indices: 
       edges: []
@@ -263,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 213fd2098a6c6f3438e031a6c88cff77
     internalID: 0
     vertices: []
     indices: 
@@ -271,14 +271,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      torch swipe_0: 2370032795161137064
-      torch swipe_1: 1760357319421295541
-      torch swipe_2: 3490938278378473497
-      torch swipe_3: 3462471381763781055
-      torch swipe_4: -5699744534455676106
-      torch swipe_5: -1976813289452074439
+      torch swipe_0: -1998301981
+      torch swipe_1: 270487427
+      torch swipe_2: -1796722094
+      torch swipe_3: -160156933
+      torch swipe_4: -1717208788
+      torch swipe_5: -1960252608
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
