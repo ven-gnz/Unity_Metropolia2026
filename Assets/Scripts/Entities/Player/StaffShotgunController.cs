@@ -8,16 +8,15 @@ public class StaffShotgunController : MonoBehaviour
 
 
     [SerializeField] Swipe _swipe;
-    [SerializeField] PlayerDirection _playerDirection;
 
     [SerializeField] Projectile _projectile;
     [SerializeField] ObjectPool _projectilePool;
-    [SerializeField] Transform _tip;
+    [SerializeField] Transform _staff;
     [SerializeField] GameObject player;
 
 
 
-    [SerializeField] private float swipeCooldown = 0.5f;
+    [SerializeField] private float swipeCooldown = 0.2f;
     private bool _swipeForward = true;
     private float nextSwipeTime;
     private Swipe _activeSwipe;
@@ -157,9 +156,7 @@ public class StaffShotgunController : MonoBehaviour
 
     void FireWave(int clustersThisWave)
     {
-        Vector2 direction =
-      _playerDirection.GetQuadrantDirection();
-
+       
         float[] innerAngles =
         {
         -innerCone,
@@ -180,7 +177,7 @@ public class StaffShotgunController : MonoBehaviour
                     Random.Range(-pelletSpread, pelletSpread);
 
                 Vector2 spawnPosition =
-                    (Vector2)_tip.position +
+                    (Vector2)_staff.position +
                     Random.insideUnitCircle * spawnRadius;
 
                 Vector2 pelletDirection =
@@ -188,7 +185,7 @@ public class StaffShotgunController : MonoBehaviour
                         0f,
                         0f,
                         pelletAngle
-                    ) * direction;
+                    ) * _lookDirection;
 
                 GameObject go =
                     _projectilePool.GetPooledObject();
@@ -214,12 +211,10 @@ public class StaffShotgunController : MonoBehaviour
 
     void UseSwipe()
     {
-        _animator.SetBool("isSwiping", true);
         Swipe swipe = Instantiate(_swipe);
-
         swipe.Initialize(
-        player.transform.position,
-        _playerDirection.LookDirection,
+        GameManager.Instance.GetPlayerReference().transform.position,
+        _lookDirection,
         _swipeForward);
 
         _activeSwipe = swipe;

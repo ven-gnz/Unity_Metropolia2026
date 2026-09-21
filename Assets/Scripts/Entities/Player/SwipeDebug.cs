@@ -9,7 +9,7 @@ public class SwipeDebug : MonoBehaviour
 
     [SerializeField] private float _radius = 2.5f;
     [SerializeField] private int _segments = 64;
-    private float _arcAngle = 135.0f;
+    private float _arcAngle = 120.0f;
     private Camera mainCamera;
 
     Vector2 _lookDirection;

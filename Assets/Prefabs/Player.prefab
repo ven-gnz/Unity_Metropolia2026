@@ -5003,38 +5003,6 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
---- !u!1 &603042759933703095
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2160502468637218513}
-  m_Layer: 3
-  m_Name: Tip
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2160502468637218513
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 603042759933703095}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.06975654, w: 0.997564}
-  m_LocalPosition: {x: 0.48848456, y: -0.30087495, z: 0}
-  m_LocalScale: {x: 5.62096, y: 5.379039, z: 0}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7736277544944421780}
-  m_Father: {fileID: 2265180159736499477}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 52}
 --- !u!1 &958264048421466841
 GameObject:
   m_ObjectHideFlags: 0
@@ -5144,12 +5112,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1755838120169553984}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.66709405, w: 0.7449736}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.71743584, w: 0.6966247}
+  m_LocalPosition: {x: 0.48848456, y: -0.30087495, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2160502468637218513}
+  m_Father: {fileID: 2265180159736499477}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -83.686}
 --- !u!114 &3602792160879165406
 MonoBehaviour:
@@ -5287,6 +5255,7 @@ MonoBehaviour:
   _characterBody: {fileID: 5206972489622863278}
   _overdriveParticles: {fileID: 8727882934524084861}
   _animator: {fileID: 4949564755466446461}
+  _playerDirection: {fileID: 0}
   _footstep: {fileID: 8300000, guid: b80107c534a1e2e4b95a420be9c6e197, type: 3}
   _healthSystem: {fileID: 3833155191796550076}
   _staffController: {fileID: 3480183630426177931}
@@ -5669,7 +5638,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5245624945956767315}
-  - {fileID: 2160502468637218513}
+  - {fileID: 7736277544944421780}
   m_Father: {fileID: 1032460311878993800}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3480183630426177931
@@ -5686,7 +5655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStaffController
   _projectile: {fileID: 1853368783819410024, guid: 3d0a9e76a50fb61469acaa7b97154f4d, type: 3}
   _fireRing: {fileID: 8482557836818539912, guid: 58448d8ab857ef34eae459fa6d3a3e3b, type: 3}
-  _tip: {fileID: 2160502468637218513}
+  _tip: {fileID: 0}
   _fireRate: 2
   player: {fileID: 0}
   _projectilePool: {fileID: 0}
